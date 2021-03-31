@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,8 +7,8 @@ public class BuildingPlacer : MonoBehaviour
     [Serializable]
     private struct StartingBuilding
     {
-        public Vector3 Position;
-        public BuildingType Type;
+        public Vector3 position;
+        public BuildingType type;
     }
     [SerializeField] private BuildingsDatabase buildingsDatabase;
     [SerializeField] private List<BuildingGridElement> buildings;
@@ -17,13 +16,16 @@ public class BuildingPlacer : MonoBehaviour
     [SerializeField] private BuildingPlacingInvoker[] placingInvokers;
     [SerializeField] private BuildingGrid[] grids;
     public LayerMask layer;
-
-    private BuildingGridElement _placingBuilding;
+    
     private Camera _camera;
+    private BuildingGridElement _placingBuilding;
+    private IBuildingGridInputProvider _inputProvider;
 
     private void Start()
     {
         _camera = Camera.main;
+        _inputProvider = GetComponent<IBuildingGridInputProvider>();
+        _inputProvider.OnPerformedPointerAction += CalculatePositionFromPointer;
         SubscribeToInvokers();
         BuildingsPoolInit();
         PlaceStartingBuildings();
@@ -33,17 +35,7 @@ public class BuildingPlacer : MonoBehaviour
     {
         for (var i = 0; i < startingBuildings.Length; i++)
         {
-            if(_placingBuilding != null) return;
-            if (buildingsDatabase.Get(startingBuildings[i].Type, out var building))
-            {
-                _placingBuilding = building.pool.Get().GetComponent<BuildingGridElement>();
-                _placingBuilding.OnBuildingDisable += RemoveFromGrid;
-                if (SnapToGrid(_placingBuilding, startingBuildings[i].Position))
-                {
-                    _placingBuilding.gameObject.SetActive(true);
-                    _placingBuilding = null;
-                }
-            }
+            StartBuildingPlacing(startingBuildings[i].type, startingBuildings[i].position);
         }
     }
 
@@ -71,29 +63,35 @@ public class BuildingPlacer : MonoBehaviour
         {
             _placingBuilding = building.pool.Get().GetComponent<BuildingGridElement>();
             _placingBuilding.OnBuildingDisable += RemoveFromGrid;
-            StartCoroutine(PlaceBuilding());
+            StartCoroutine(_inputProvider.TrackPerformedPointerPosition());
         }
     }
 
-    private IEnumerator PlaceBuilding()
+    private void StartBuildingPlacing(BuildingType buildingType, Vector3 position)
     {
-        while (true)
+        if(_placingBuilding != null) return;
+        if (buildingsDatabase.Get(buildingType, out var building))
         {
-            if (Input.GetButtonDown("Fire1"))
-            {
-                var ray = _camera.ScreenPointToRay(Input.mousePosition);
-                if (Physics.Raycast(ray, out var hitInfo, Mathf.Infinity, layer))
-                {
-                    if (SnapToGrid(_placingBuilding, hitInfo.point))
-                    {
-                        _placingBuilding.gameObject.SetActive(true);
-                        _placingBuilding = null;
-                        yield break;
-                    }
-                }
-            }
-            yield return null;
+            _placingBuilding = building.pool.Get().GetComponent<BuildingGridElement>();
+            _placingBuilding.OnBuildingDisable += RemoveFromGrid;
+            if (PlaceBuilding(_placingBuilding, position))
+                _placingBuilding = null;
         }
+    }
+
+    private bool PlaceBuilding(BuildingGridElement buildingGridElement, Vector3 position)
+    {
+        if (!SnapToGrid(buildingGridElement, position)) return false;
+        buildingGridElement.gameObject.SetActive(true);
+        return true;
+    }
+
+    private void CalculatePositionFromPointer(Vector3 pointerPosition)
+    {
+        var ray = _camera.ScreenPointToRay(pointerPosition);
+        if (!Physics.Raycast(ray, out var hitInfo, Mathf.Infinity, layer)) return;
+        if (PlaceBuilding(_placingBuilding, hitInfo.point))
+            _placingBuilding = null;
     }
 
     private bool SnapToGrid(BuildingGridElement building, Vector3 position)
