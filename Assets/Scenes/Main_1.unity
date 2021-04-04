@@ -4108,7 +4108,7 @@ Transform:
   - {fileID: 1619959229}
   - {fileID: 836646167}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &836646166
 GameObject:
@@ -4244,50 +4244,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 854450628}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &868529652
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 868529654}
-  - component: {fileID: 868529653}
-  m_Layer: 8
-  m_Name: Building Grid
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &868529653
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 868529652}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1271249bb20a5b3b29500a3dc994981d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gridSize: {x: 15, y: 6}
---- !u!4 &868529654
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 868529652}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10, y: -0.2, z: 3}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1129033946}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &869552156
 GameObject:
   m_ObjectHideFlags: 0
@@ -5615,86 +5571,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1103213788}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1129033945
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1129033946}
-  - component: {fileID: 1129033947}
-  - component: {fileID: 1129033948}
-  m_Layer: 0
-  m_Name: Grids
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1129033946
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1129033945}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 868529654}
-  - {fileID: 1258725868}
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1129033947
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1129033945}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0b0c4cff3324b379f3ed15a5e682c58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buildingsDatabase: {fileID: 11400000, guid: 558296b7dca864e96b107e8c6eb633b4, type: 2}
-  buildings: []
-  startingBuildings:
-  - position: {x: -10, y: 0, z: 4}
-    type: 0
-  - position: {x: -6, y: 0, z: 5}
-    type: 0
-  - position: {x: -2, y: 0, z: 3}
-    type: 0
-  - position: {x: -14, y: 0, z: -2}
-    type: 0
-  - position: {x: -14, y: 0, z: -7}
-    type: 0
-  placingInvokers:
-  - {fileID: 1561257942}
-  grids:
-  - {fileID: 868529653}
-  - {fileID: 1258725869}
-  layer:
-    serializedVersion: 2
-    m_Bits: 256
---- !u!114 &1129033948
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1129033945}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd9402ba877142628a908d0dcf82b71c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keyCode: 323
 --- !u!1001 &1186680265
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5780,50 +5656,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1186680265}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1258725867
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1258725868}
-  - component: {fileID: 1258725869}
-  m_Layer: 8
-  m_Name: Building Grid (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1258725868
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1258725867}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -16, y: -0.2, z: -14}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1129033946}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1258725869
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1258725867}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1271249bb20a5b3b29500a3dc994981d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gridSize: {x: 5, y: 15}
 --- !u!1001 &1277236519
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7051,7 +6883,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1561257940}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1561257942}
+        m_MethodName: StartBuilding
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1561257940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7098,11 +6941,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1561257937}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 701a4712724e4fbcafc8de14af5f8770, type: 3}
+  m_Script: {fileID: 11500000, guid: 62f9f48925fb42ef96f95d4ea55ab8cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingType: 0
-  button: {fileID: 1561257939}
+  buildingType: 1
 --- !u!1001 &1571612350
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8381,6 +8223,102 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1863699577
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1863699579}
+  - component: {fileID: 1863699578}
+  - component: {fileID: 1863699580}
+  - component: {fileID: 1863699581}
+  m_Layer: 0
+  m_Name: Grid
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1863699578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1863699577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f17cf32d2cd4a8dadac9e944c2ac314, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gridSize: {x: 25, y: 25}
+  activeAreas:
+  - vertex1: {x: 0, y: 0}
+    vertex2: {x: 5, y: 16}
+  - vertex1: {x: 6, y: 17}
+    vertex2: {x: 20, y: 23}
+  gizmosMode: 2
+  activeCellColor: {r: 0, g: 0.62, b: 1, a: 0.59}
+  inactiveCellColor: {r: 0.5, g: 0.5, b: 0.5, a: 0.59}
+--- !u!4 &1863699579
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1863699577}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -16, y: 0, z: -14}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1863699580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1863699577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa72186def304a9ab912af6210fdbe87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildingsDatabase: {fileID: 11400000, guid: b3681782ec81048dfb304c259a5ebe99, type: 2}
+  startingBuildings:
+  - type: 1
+    position: {x: -9, y: 0.5, z: 4}
+  - type: 1
+    position: {x: -6, y: 0.25, z: 6}
+  - type: 1
+    position: {x: -2, y: 0, z: 4}
+  - type: 1
+    position: {x: -14, y: 0, z: 1}
+  - type: 1
+    position: {x: -15, y: 0, z: -5}
+  startBuildingInvokers:
+  - {fileID: 1561257942}
+--- !u!114 &1863699581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1863699577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53b54d525e00464783bfe73b8eb69807, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+  layer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1001 &1863749258
 PrefabInstance:
   m_ObjectHideFlags: 0

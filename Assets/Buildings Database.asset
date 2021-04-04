@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c617abe9d3cc412bb3b182515f33ca99, type: 3}
-  m_Name: Buildings
+  m_Script: {fileID: 11500000, guid: 56b3948621f34d3e8d88ff2ab542a7fd, type: 3}
+  m_Name: Buildings Database
   m_EditorClassIdentifier: 
   buildings:
-  - type: 0
-    building: {fileID: 1087755790840657192, guid: 26975b9e0ddac1f809dc931100e7633a,
+  - type: 1
+    gridElement: {fileID: 5430699727213210802, guid: fadc22ff18a5809cb97f92e836ed744f,
       type: 3}
